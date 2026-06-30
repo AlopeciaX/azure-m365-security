@@ -45,17 +45,13 @@ Azure 클라우드 환경에 Terraform으로 인프라를 자동 프로비저닝
 
 ## 실행 방법
 
+본 프로젝트는 교육·실습 목적으로 구성되었으며, `SUBSCRIPTION_ID`만 본인 Azure 구독 ID로 입력하면 나머지 인프라는 자동으로 구성됩니다. 리소스 이름, 비밀번호 등은 실습용으로 사용한 값이 그대로 들어가 있으므로 별도 수정 없이 바로 실행 가능합니다.
+
 ```bash
 # 1. SUBSCRIPTION_ID 환경변수 설정
-export SUBSCRIPTION_ID="구독ID"
+export SUBSCRIPTION_ID="본인 구독 ID 입력"
 
-# 2. terraform.tfvars 수정 (본인 환경에 맞게)
-#    - rgname        : 생성할 리소스 그룹명
-#    - key_vault_name: 전역 고유값이므로 반드시 변경
-#    - loca1, loca2  : 배포할 Azure 지역
-vi 01_tuna/terraform.tfvars
-
-# 3. 전체 배포 (bootstrap → Terraform 순서로 자동 실행)
+# 2. 전체 배포 (bootstrap → Terraform 순서로 자동 실행)
 bash 100_run.sh
 ```
 
